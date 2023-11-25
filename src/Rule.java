@@ -12,6 +12,17 @@ public class Rule implements Serializable
     public int newCellValue;
     public int newState;
 
+    public Rule(){}
+
+    public Rule(int state, int cellValue, Direction dir, int newCellValue, int newState)
+    {
+        this.state = state;
+        this.cellValue = cellValue;
+        this.direction = dir;
+        this.newCellValue = newCellValue;
+        this.newState = newState;
+    }
+
     public static Direction returnDirection(String d)
     {
         return switch (d)
