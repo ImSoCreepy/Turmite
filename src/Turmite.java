@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Turmite extends Thread implements Serializable
 {
-    List<Rule> rules;
+    private List<Rule> rules;
     private int xPos;
     private int yPos;
     private int state;
@@ -45,38 +45,9 @@ public class Turmite extends Thread implements Serializable
     }
 
 
-    public void initRules(String r1, String r2, String r3, String r4)
+    public void initRules(ArrayList<Rule> rules)
     {
-        rules = new ArrayList<>();
-        Rule rule1 = extractRule(r1);
-        Rule rule2 = extractRule(r2);
-        Rule rule3 = extractRule(r3);
-        Rule rule4 = extractRule(r4);
-        if(rule1.state!=-1)
-            rules.add(rule1);
-        if(rule2.state!=-1)
-            rules.add(rule2);
-        if(rule3.state!=-1)
-            rules.add(rule3);
-        if(rule4.state!=-1)
-            rules.add(rule4);
-    }
-
-    private Rule extractRule(String r)
-    {
-        Rule rule = new Rule();
-        if(!r.isEmpty())
-        {
-            String[] split = r.split("-");
-            rule.state = Integer.parseInt(split[0]);
-            rule.cellValue = Integer.parseInt(split[1]);
-            rule.direction = Rule.returnDirection(split[2]);
-            rule.newCellValue = Integer.parseInt(split[3]);
-            rule.newState = Integer.parseInt(split[4]);
-        }
-        else
-            rule.state = -1;
-        return rule;
+        this.rules = rules;
     }
 
     public void step()
