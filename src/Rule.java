@@ -34,4 +34,10 @@ public class Rule implements Serializable
             default -> null;
         };
     }
+
+    @Override
+    public String toString()
+    {
+        return (state+"-"+cellValue+"-"+direction.toString().charAt(0)+"-"+newCellValue+"-"+newState);
+    }
 }

@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Turmite extends Thread implements Serializable
 {
-    private List<Rule> rules;
+    private ArrayList<Rule> rules;
     private int xPos;
     private int yPos;
     private int state;
@@ -44,6 +44,10 @@ public class Turmite extends Thread implements Serializable
         return yPos;
     }
 
+    public ArrayList<Rule> getRules()
+    {
+        return rules;
+    }
 
     public void initRules(ArrayList<Rule> rules)
     {
@@ -60,9 +64,14 @@ public class Turmite extends Thread implements Serializable
     }
 
     private Rule findMatchingRule() {
-        for (Rule rule : rules) {
-            if (rule.state == this.state && rule.cellValue == Application.centerPanel.gridValues[xPos][yPos]) {
-                return rule;
+        if(rules != null)
+        {
+            for (Rule rule : rules)
+            {
+                if (rule.state == this.state && rule.cellValue == Application.centerPanel.gridValues[xPos][yPos])
+                {
+                    return rule;
+                }
             }
         }
         return null;
@@ -124,7 +133,7 @@ public class Turmite extends Thread implements Serializable
     @Override
     public void run()
     {
-        while (true)
+        while (Application.centerPanel.activeSim)
         {
             if(Application.centerPanel.isRunning)
             {
