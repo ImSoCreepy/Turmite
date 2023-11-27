@@ -139,6 +139,7 @@ public class MenuPanel extends JPanel
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         rule3State = new JComboBox<>(new Integer[]{0, 1});
+        rule3State.setName("rule3State");
         rule3State.addActionListener(changeListener);
         this.add(rule3State,gridBagConstraints);
 
@@ -171,6 +172,7 @@ public class MenuPanel extends JPanel
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 2;
         rule3Disable = new JCheckBox("Disable");
+        rule3Disable.setName("rule3Disable");
         rule3Disable.addItemListener(e -> {
             if(rule3Disable.isSelected())
             {
@@ -206,6 +208,7 @@ public class MenuPanel extends JPanel
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
         rule4State = new JComboBox<>(new Integer[]{0, 1});
+        rule4State.setName("rule4State");
         rule4State.addActionListener(changeListener);
         this.add(rule4State,gridBagConstraints);
 
@@ -238,6 +241,7 @@ public class MenuPanel extends JPanel
         gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 2;
         rule4Disable = new JCheckBox("Disable");
+        rule4Disable.setName("rule4Disable");
         rule4Disable.addItemListener(e -> {
             if(rule4Disable.isSelected())
             {
