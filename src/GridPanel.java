@@ -1,7 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.Serializable;
 
-public class GridPanel extends JPanel
+public class GridPanel extends JPanel implements Serializable
 {
     public static int gridWidth;
     public static int gridHeight;
@@ -12,6 +13,7 @@ public class GridPanel extends JPanel
     public int[][] gridValues;
 
     public volatile boolean isRunning;
+    public volatile boolean activeSim;
     Turmite turmite;
 
     public GridPanel(int width, int height)
@@ -21,6 +23,7 @@ public class GridPanel extends JPanel
         gridHeight = height;
         cellWidth = 10;
         isRunning = false;
+        activeSim = true;
 
         grid = new Polygon[gridWidth][gridHeight];
         gridValues = new int[gridWidth][gridHeight];
