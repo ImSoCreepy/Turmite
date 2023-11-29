@@ -397,12 +397,9 @@ public class MenuPanel extends JPanel
             Application.centerPanel.turmite.start();
             Application.centerPanel.repaint();
             repaint();
-        } catch (IOException e)
+        } catch (Exception e)
         {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e)
-        {
-            throw new RuntimeException(e);
+            JOptionPane.showMessageDialog(this.getParent(), "Invalid file selected. Please choose an appropriate file!", "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }
 
